@@ -26,6 +26,6 @@ module "pulsiot-ec2-module" {
   proj_name = var.proj_name
   env_name = var.env_name
   key_pair  = var.key_pair
-  security_groups = module.pulsiot-security-group-module.id
+  security_groups = module.pulsiot-security-group-module.security_group_id
   ami_id    = var.ami_id
 }
