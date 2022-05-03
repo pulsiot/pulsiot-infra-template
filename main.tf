@@ -12,6 +12,12 @@ provider "aws" {
   region = "us-east-2"
 }
 
+module "pulsiot-security-group-module" {
+  source = "github.com/pulsiot/pulsiot-security-group-module"
+  vpc_id = var.vpc_id
+  cidr_blocks = var.cidr_blocks
+  ipv6_cidr_blocks = var.ipv6_cidr_blocks
+}
 
 module "pulsiot-ec2-module" {
   source = "github.com/pulsiot/pulsiot-ec2-module"
@@ -20,5 +26,6 @@ module "pulsiot-ec2-module" {
   proj_name = var.proj_name
   env_name = var.env_name
   key_pair  = var.key_pair
-  ami_id    = data.aws_ami.ubuntu.id
+  security_groups = module.pulsiot-security-group-module.id
+  ami_id    = var.ami_id
 }
