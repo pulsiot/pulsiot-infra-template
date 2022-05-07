@@ -1,7 +1,7 @@
 variable "inst_type" {
   description = "Enter the EC2 Instance Type:"
-  type        = string 
-  default     = "t3.micro" 
+  type        = string
+  default     = "t3.micro"
 }
 
 variable "inst_name" {
@@ -42,12 +42,18 @@ variable "vpc_id" {
 
 variable "cidr_blocks" {
   description = "Enter the IPv4 CIDR block:"
-  type        = list
+  type        = list(any)
   default     = ["0.0.0.0/0"]
 }
 
 variable "ipv6_cidr_blocks" {
   description = "Enter the IPv6 CIDR block:"
-  type        = list
+  type        = list(any)
   default     = ["::/0"]
+}
+
+variable "security_groups" {
+  #type = any
+  type = list(any)
+  default = null
 }
