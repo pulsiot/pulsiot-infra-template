@@ -54,6 +54,6 @@ variable "ipv6_cidr_blocks" {
 
 variable "security_groups" {
   #type = any
-  type = list(any)
+  type    = list(any)
   default = null
 }

@@ -13,14 +13,14 @@ provider "aws" {
 }
 
 module "pulsiot-security-group-module" {
-  source           = "github.com/pulsiot/pulsiot-security-group-module"
+  source           = "github.com/pulsiot/pulsiot-security-group-module?ref=v0.1.0"
   vpc_id           = var.vpc_id
   cidr_blocks      = var.cidr_blocks
   ipv6_cidr_blocks = var.ipv6_cidr_blocks
 }
 
 module "pulsiot-ec2-module" {
-  source          = "github.com/pulsiot/pulsiot-ec2-module"
+  source          = "github.com/pulsiot/pulsiot-ec2-module?ref=v0.1.0"
   inst_type       = var.inst_type
   inst_name       = var.inst_name
   proj_name       = var.proj_name
